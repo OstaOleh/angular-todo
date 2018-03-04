@@ -1,0 +1,24 @@
+
+<div class="todo-list">
+  <app-todo-item *ngFor="let task of tasks" [task]="task" [show]="show"></app-todo-item>
+  <div class="items-inf" *ngIf="!empty">
+    <div class="numbers-of-items" *ngIf="count === 1; else even">{{count}} item left</div>
+    <ng-template #even>
+      <div class="numbers-of-items" >{{count}} items left</div>
+    </ng-template>
+    <div class="btn-group">
+      <button 
+      [ngClass]="show == 'all'? 'button-primary': 'button' " 
+      (click)="showAll()">All</button>
+      <button 
+      class="button" 
+      [ngClass]="show == 'active' ? 'button-primary': 'button' " 
+      (click)="showActive()">Active</button>
+      <button 
+      class="button" 
+      [ngClass]="show == 'completed' ? 'button-primary': 'button'" 
+      (click)="showCompleted()" >Completed</button>
+    </div>
+    <a class="clear-completed" style="cursor: pointer" (click)="deleteCompeted()" *ngIf="isCompleted">Clear completed</a>
+  </div>
+</div>

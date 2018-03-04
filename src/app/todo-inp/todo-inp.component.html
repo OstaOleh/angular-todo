@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-grop">
+    <a class="link">
+      <button type="button" class="mi mi-keyboard-arrow-down" (click)="completeAllTasks()">Compete All</button>
+    </a>
+    <input type="text" name="inpTask" id="task" placeholder="What needs to be done?" class="u-full-width task" [formControlName]="'inpTask'">
+  </div>
+</form>
+
+

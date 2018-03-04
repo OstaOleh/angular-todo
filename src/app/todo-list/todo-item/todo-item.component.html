@@ -1,0 +1,38 @@
+<li class="item" [ngClass]="{'done': task.done}" *ngIf="show == 'active' && !task.done" active="show">
+  <a class="link link-check">
+    <button *ngIf="!task.done; else done" class="mi mi-check" (click)="completeTask(task)">Comlete</button>
+    <ng-template #done>
+      <button class="mi mi-check" (click)="completeTask(task)">Comleted</button>
+    </ng-template>
+
+  </a>
+  <div class="text">{{task.task}} </div>
+  <a class="link link-delete">
+    <button class="mi mi-delete" (click)="deleteTask(task)">Delete</button>
+  </a>
+</li>
+<li class="item" [ngClass]="{'done': task.done}" *ngIf="(show == 'completed' && task.done)">
+  <a class="link link-check">
+    <button *ngIf="!task.done; else done" class="mi mi-check" (click)="completeTask(task)">Comlete</button>
+    <ng-template #done>
+      <button class="mi mi-check" (click)="completeTask(task)">Comleted</button>
+    </ng-template>
+  </a>
+  <div class="text">{{task.task}} </div>
+  <a class="link link-delete">
+    <button class="mi mi-delete" (click)="deleteTask(task)">Delete</button>
+  </a>
+</li>
+<li class="item" [ngClass]="{'done': task.done}" *ngIf="show == 'all'">
+  <a class="link link-check">
+    <button *ngIf="!task.done; else done" class="mi mi-check" (click)="completeTask(task)">Comlete</button>
+    <ng-template #done>
+      <button class="mi mi-check" (click)="completeTask(task)">Comleted</button>
+    </ng-template>
+
+  </a>
+  <div class="text">{{task.task}} </div>
+  <a class="link link-delete">
+    <button class="mi mi-delete" (click)="deleteTask(task)">Delete</button>
+  </a>
+</li>
